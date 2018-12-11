@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <link rel="stylesheet" type="text/css" href="per.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript">
+        // JS实现选项卡切换
+        window.onload = function(){
+            var myTab = document.getElementById("tab");    //整个div
+            var myUl = myTab.getElementsByTagName("ul")[0];//一个节点
+            var myLi = myUl.getElementsByTagName("li");    //数组
+            var myDiv = myTab.getElementsByTagName("div"); //数组
+
+            for(var i = 0; i<myLi.length;i++){
+                myLi[i].index = i;
+                myLi[i].onclick = function(){
+                    for(var j = 0; j < myLi.length; j++){
+                        myLi[j].className="off";
+                        myDiv[j].className = "hide";
+                    }
+                    this.className = "on";
+                    myDiv[this.index].className = "show";
+                }
+            }
+        }
+
+
+
+        $(function(){
+
+            $(".menu >ul >li").hover(function(){
+
+                $(this).find(".sub_menu").show();
+
+            },function(){
+
+                $(this).find(".sub_menu").hide();
+            });
+
+        });
+
+
+    </script>
+
+</head>
+<body  > <img src="logo.PNG" style="width:170px ;height: 70px;padding: 0 5em" >
+<header class="site-nav">
+<div class="h"></div>
+    <nav class="nav">
+<ul class="ul">
+    <li><a href="" class="current">首页</a> </li>
+    <li><a href="">约会吧</a></li>
+</ul>
+    </nav>
+    <nav class=" nav1">
+    <ul>
+        <li><a href="" class="current">首页</a> </li>
+        <li><a href="">约会吧</a></li>
+    </ul>
+    </nav>
+    <div class="user">
+        <div class="username">
+            <img src="touxiang.png" style="width: 35px;height: 35px" >
+            <a href="personal.html"> <p style="color: #f9f9f9;padding: 5px 15px;text-align: right"class="left">uesrname</p></a>
+        </div>
+
+</div>
+</header>
+</div>
+
+<div class="b">
+    <h2   style="text-align: center"> 个人中心</h2>
+    <div id = "tab">
+        <ul>
+            <li class="on">基本信息</li>
+            <li class="off">工作经历</li>
+            <li class="off">教育经历</li>
+        </ul>
+
+        <div class="show">
+            <form action="##" method="post" name="Information_modification">
+                <table>
+                    <tr>
+                        <td align="right"> 姓名:</td>
+                        <td align="left">
+                            <input type="text" name="username">
+                        <td align="right">性别:</td>
+                        <td align="left">
+                            <select name="sex" style="width: 100px;height:35px ">
+                                <option value="0">选择性别</option>
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                            </select>
+                        </td>
+                    </tr>
+                   <tr>
+                        </td>
+                        <td align="right"> 现居地址:</td>
+                        <td align="left" >
+                            <select name="city1" class='moco-form-control' hidefocus="true">
+                                <option value="0">选择省份</option>
+                                <option value="1">北京</option>
+                                <option value="2">天津</option>
+                                <option value="3">河北</option>
+                                <option value="4">山西</option>
+                                <option value="5">内蒙古</option>
+                                <option value="6">辽宁</option>
+                                <option value="7">吉林</option>
+                                <option value="8">黑龙江</option>
+                                <option value="9">上海</option>
+                                <option value="10">江苏</option>
+                                <option value="11">浙江</option>
+                                <option value="12">安徽</option>
+                                <option value="13">福建</option>
+                                <option value="14">江西</option>
+                                <option value="15">山东</option>
+                                <option value="16">河南</option>
+                                <option value="17">湖北</option>
+                                <option value="18">湖南</option>
+                                <option value="19">广东</option>
+                                <option value="20">海南</option>
+                                <option value="21">广西</option>
+                                <option value="22">甘肃</option>
+                                <option value="23">陕西</option>
+                                <option value="24">新疆</option>
+                                <option value="25">青海</option>
+                                <option value="26">宁夏</option>
+                                <option value="27">重庆</option>
+                                <option value="28">四川</option>
+                                <option value="29">贵州</option>
+                                <option value="30">云南</option>
+                                <option value="31">西藏</option>
+                                <option value="32">台湾</option>
+                                <option value="33">澳门</option>
+                                <option value="34">香港</option>
+                                <option value="100">其他</option>
+                            </select>
+                            <select name="city2" id="city-select" hidefocus="true">
+                                <option value="0">选择城市</option>
+                            </select>
+                            <select name="city3" id="area-select" hidefocus="true">
+                                <option value="0">选择区县</option>
+                            </select>
+                        </td>
+                        <td align="right">手机号:</td>
+                        <td align="left"  >
+                            <input type="text" name="phonenum">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">出生日期:</td>
+                        <td align="left">
+                            <input type="date" name="birth">
+                        </td>
+                        <td align="right" >
+                            &nbsp;
+                        </td>
+                        <td>
+                            <input type="text" name="Verification_Code" style="width:80px;" >
+                            <a href="##">获取验证码</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"> 通讯地址</td>
+                        <td align="left">
+                            <input type="text" name="home">
+                        </td>
+                        <td align="right">邮箱:</td>
+                        <td align="left"  >
+                            <input type="email" name="email">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4" align="center">
+                            <input type="submit" value="保存" name="Preservation">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div class="hide">
+            <form action="##" method="post" name="form">
+                <table>
+                    <tr>
+                        <td align="right" > 企业/组织名称:</td>
+                        <td align="left">
+                            <input type="text" name="company" placeholder="企业/组织名称">
+                        </td>
+                        <td align="right"> 职位头衔:</td>
+                        <td align="left" >
+                            <input type="text" name="job" placeholder="如:Java工程师">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"> 起始时间:</td>
+                        <td align="left">
+                            <input type="date" name="start" placeholder="20180101">
+                            -<input type="date" name="finish">
+                        </td>
+                        <td align="right"> 工作城市:</td>
+                        <td align="left" >
+                            <select name="workcity" class='moco-form-control' hidefocus="true">
+                                <option value="0">选择省份</option>
+                                <option value="1">北京</option>
+                                <option value="2">天津</option>
+                                <option value="3">河北</option>
+                                <option value="4">山西</option>
+                                <option value="5">内蒙古</option>
+                                <option value="6">辽宁</option>
+                                <option value="7">吉林</option>
+                                <option value="8">黑龙江</option>
+                                <option value="9">上海</option>
+                                <option value="10">江苏</option>
+                                <option value="11">浙江</option>
+                                <option value="12">安徽</option>
+                                <option value="13">福建</option>
+                                <option value="14">江西</option>
+                                <option value="15">山东</option>
+                                <option value="16">河南</option>
+                                <option value="17">湖北</option>
+                                <option value="18">湖南</option>
+                                <option value="19">广东</option>
+                                <option value="20">海南</option>
+                                <option value="21">广西</option>
+                                <option value="22">甘肃</option>
+                                <option value="23">陕西</option>
+                                <option value="24">新疆</option>
+                                <option value="25">青海</option>
+                                <option value="26">宁夏</option>
+                                <option value="27">重庆</option>
+                                <option value="28">四川</option>
+                                <option value="29">贵州</option>
+                                <option value="30">云南</option>
+                                <option value="31">西藏</option>
+                                <option value="32">台湾</option>
+                                <option value="33">澳门</option>
+                                <option value="34">香港</option>
+                                <option value="100">其他</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><spen >相关技术:</spen></td>
+                        <td colspan="1">
+                            <input style="width:350px;height: 30px" type="text"   placeholder="标签。如：java可使用逗号，分号；来分隔"  name="correlation" class="tec">
+                        </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><spen >取得成就:</spen></td>
+                        <td colspan="4">
+                        <textarea  style="height: 150px;width: 450px"   name="description" autofocus="true">
+                        </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <input type="submit" value="保存" name="submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+        <div class = "hide">
+            <form action="##" method="post" name="form">
+                <table>
+                    <tr>
+                        <td align="right" > 学院名称:</td>
+                        <td align="left">
+                            <input type="text" name="school" placeholder="院校名称">
+                        </td>
+                        <td align="right"> 所学专业:</td>
+                        <td align="left" >
+                            <input type="text" name="study" placeholder="如:Java工程师">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"> 起止时间:</td>
+                        <td align="left">
+                            <input type="date" name="start" placeholder="2018-01-01">
+                            -<input type="date" name="finish">
+                        </td>
+                        <td align="right"> 学历:</td>
+                        <td align="left" >
+                            <select name="education"  hidefocus="true">
+                                <option value="0">选择学历</option>
+                                <option value="1">专科</option>
+                                <option value="2">本科</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><spen >相关技术:</spen></td>
+                        <td colspan="1">
+                        <input style="width:350px;height: 30px" type="text"   placeholder="标签。如：java可使用逗号，分号；来分隔" name="correlation" class="tec">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right"><spen >取得成就:</spen></td>
+                        <td colspan="4">
+                        <textarea  style="height: 150px;width: 450px" name="describe" autofocus="true">
+                        </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center">
+                            <input type="submit" value="保存" name="submit">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+    </div>
+    </div>
+</div>
+</body>
+</html>
