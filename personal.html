@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>个人中心</title>
     <link rel="stylesheet" type="text/css" href="per.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+
     <script type="text/javascript">
         // JS实现选项卡切换
         window.onload = function(){
@@ -43,10 +43,49 @@
         });
 
 
+// 文件上传
+
+            function imgPreview(fileDom){
+                //判断是否支持FileReader
+                if (window.FileReader) {
+                    var reader = new FileReader();
+                } else {
+                    alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+                }
+
+                //获取文件
+                var file = fileDom.files[0];
+                var imageType = /^image\//;
+                //是否是图片
+                if (!imageType.test(file.type)) {
+                    alert("请选择图片!");
+                    return;
+                }
+                //读取完成
+                reader.onload = function(e) {
+                    //获取图片dom
+                    var img = document.getElementById("preview");
+                    //图片路径设置为读取的图片
+                    img.src = e.target.result;
+
+                    // ajax 上传图片
+                    $.post("upload_h5.php", {img: e.target.result}, function(ret) {
+                        if (ret.img!='') {
+                            alert('upload success');
+                            $('#showimg').html('<img src="' + ret.img + '">');
+                        } else {
+                            alert('upload fail');
+                        }
+                    },'json');
+                };
+                reader.readAsDataURL(file);
+            }
     </script>
 
+
 </head>
-<body  > <img src="logo.PNG" style="width:170px ;height: 70px;padding: 0 5em" >
+<body  >
+<img src="logo.PNG" style="width:170px ;height: 70px;padding: 0 5em" >
 <header class="site-nav">
 <div class="h"></div>
     <nav class="nav">
@@ -61,16 +100,83 @@
         <li><a href="">约会吧</a></li>
     </ul>
     </nav>
-    <div class="user">
-        <div class="username">
-            <img src="touxiang.png" style="width: 35px;height: 35px" >
-            <a href="personal.html"> <p style="color: #f9f9f9;padding: 5px 15px;text-align: right"class="left">uesrname</p></a>
-        </div>
 
-</div>
+
+    <nav>
+        <ul class="username">
+            <li>
+                <a href="" style="color: #f9f9f9;margin: 4px 355px;margin-left: 50px;margin-top: 8px">
+                    <img src="touxiang.png" style="width: 35px;height: 35px" >
+              用户</a>
+                <ul>
+                    <li>
+                        <a href=""><div id="container" class="container" >
+                            <div style="float: left;margin-right: 80px">
+                                <div class="login-form">
+                                    <img src="logo.png" height="150px" width="150px">
+                                </div>
+                                <div class="login-form1">
+                                    <img src="1.jpg" height="30px" width="30px">
+                                    <img src="2.jpg" height="30px" width="30px">
+                                    <img src="3.jpg" height="30px" width="30px">
+                                </div>
+                            </div>
+                            <div class="login">
+                                <form >
+                                    <table>
+                                        <tr>
+                                            <td align="left">用户名:</td>
+                                            <td>
+                                                <input type="text" name="username">
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td align="right">手机号:</td>
+                                            <td>
+                                                <input type="text" name="phonenum">
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td align="left">出生日期:</td>
+                                            <td>
+                                                <input type="text" name="birth">
+
+                                        </tr>
+<tr>
+    </td>
+    <td align="right">性别:</td>
+    <td>
+        <input type="text" name="city">
+    </td>
+</tr>
+                                        <tr>
+                                            <td align="left">email:</td>
+                                            <td>
+                                                <input type="text" name="email">
+                                            </td>
+
+
+                                        </tr>
+<tr>
+    <td align="right">现居地址:</td>
+    <td>
+        <input type="text" name="email">
+    </td>
+</tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        </a>
+                    </li>
+                    </ul>
+
+        </ul>
+    </nav>
+
 </header>
-</div>
-
 <div class="b">
     <h2   style="text-align: center"> 个人中心</h2>
     <div id = "tab">
@@ -79,10 +185,12 @@
             <li class="off">工作经历</li>
             <li class="off">教育经历</li>
         </ul>
-
         <div class="show">
-            <form action="##" method="post" name="Information_modification">
-                <table>
+            <form action="ShangChuan3" method="post" name="Information"  enctype="multipart/form-data">
+                <img id="preview" style="width: 100px;height: 100px"/>
+                <input type="file" name="file"  id="imgFile" onchange="imgPreview(this)" style="margin-top: 5px;margin-left: 5px"  />
+
+               <table>
                     <tr>
                         <td align="right"> 姓名:</td>
                         <td align="left">
@@ -176,7 +284,7 @@
 
                     <tr>
                         <td colspan="4" align="center">
-                            <input type="submit" value="保存" name="Preservation">
+                            <input type="submit" value="保存" name="Preservation" class="input1">
                         </td>
                     </tr>
                 </table>
@@ -260,7 +368,7 @@
                     </tr>
                     <tr>
                         <td colspan="4" align="center">
-                            <input type="submit" value="保存" name="submit">
+                            <input type="submit" value="保存" name="submit" class="input1">
                         </td>
                     </tr>
                 </table>
@@ -312,7 +420,7 @@
                     </tr>
                     <tr>
                         <td colspan="4" align="center">
-                            <input type="submit" value="保存" name="submit">
+                            <input type="submit" value="保存" name="submit" class="input1">
                         </td>
                     </tr>
                 </table>
