@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        *{
+            padding:0px;
+            margin:0px;
+        }
+        .site-nav{
+            height: 40px;
+            width: 100%;
+            background-color: #1b2435;
+        }
+        .nav{
+            float: left;
+            margin-left: 85px;
+        }
+
+        .nav li{
+            float: left;
+            list-style: none;
+        }
+        .nav li a{
+            display: inline-block;
+            padding: 0 18px;
+            line-height: 40px;
+            font-size: 14px;
+            color: white;
+            height: 40px;
+            text-decoration:none
+        }
+        .nav li a.current,.nav a:hover{
+            background-color: #ffdcfb;
+            color: white;
+        }
+        .nav1{
+            display: none;
+        }
+        /*去点*/
+        ul,li{
+            list-style: none;
+        }
+        .username{
+            float: right;
+            position: relative;
+        }
+        /*去横线*/
+        a{
+            text-decoration:none;}
+
+
+        ul li {
+            position: relative; /* 使子選單依照母選單的座標顯示 */
+        }
+        ul li a:only-child{
+            background: none;
+        }
+        ul li:hover > ul {
+            display: block; /* 滑鼠滑入母選單後，顯示子選單 */
+        }
+        ul ul {
+            position: absolute;
+            top: 100%;
+            list-style: none;
+            display: none;
+        }
+        #container{
+            position: absolute;
+            width: 40%;
+            height: 35%;border:1px
+        }
+
+    </style>
+</head>
+<body>
+<img src="logo.PNG" style="width:170px ;height: 70px;padding: 0 5em" >
+<header class="site-nav">
+    <div class="h"></div>
+    <nav class="nav">
+        <ul class="ul">
+            <li><a href="" class="current">首页</a> </li>
+            <li><a href="">约会吧</a></li>
+        </ul>
+    </nav>
+    <nav class=" nav1">
+        <ul>
+            <li><a href="" class="current">首页</a> </li>
+            <li><a href="">约会吧</a></li>
+        </ul>
+    </nav>
+
+
+    <nav>
+        <ul class="username">
+            <li>
+                <a href="" style="color: #f9f9f9;margin: 4px 355px;margin-left: 50px;margin-top: 8px">
+                    <img src="touxiang.png" style="width: 35px;height: 35px" >
+                    用户</a>
+                <ul>
+                    <li>
+                        <a href=""><div id="container" class="container" >
+                            <div style="float: left;margin-right: 80px">
+                                <div class="login-form">
+                                    <img src="logo.png" height="150px" width="150px">
+                                </div>
+                                <div class="login-form1">
+                                    <img src="1.jpg" height="20px" width="20px">
+                                    <img src="2.jpg" height="20px" width="20px">
+                                    <img src="3.jpg" height="20px" width="20px">
+                                </div>
+                            </div>
+                            <div class="login">
+                                <form >
+                                    <table>
+                                        <tr>
+                                            <td style="float: right">用户名:</td>
+                                            <td>
+                                                <span type="text" name="username"/>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td style="float: right">手机号:</td>
+                                            <td>
+                                                <span type="text" name="phonenum"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td style="float: right">出生日期:</td>
+                                            <td>
+                                                <span type="text" name="birth"/>
+
+                                        </tr>
+                                        <tr>
+                                            </td>
+                                            <td style="float: right">性别:</td>
+                                            <td>
+                                                <span type="text" name="city"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="float: right">email:</td>
+                                            <td>
+                                                <span type="text" name="email"/>
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td style="float: right">现居地址:</td>
+                                            <td>
+                                                <span type="text" name="email"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                        </a>
+                    </li>
+                </ul>
+
+        </ul>
+    </nav>
+
+</header>
+</div>
+</body>
+</html>
